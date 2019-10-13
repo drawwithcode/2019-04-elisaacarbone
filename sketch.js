@@ -15,6 +15,9 @@ function reset() {
 
   analyzer = new p5.Amplitude();
   analyzer.setInput(song);
+
+  //create a slider to slide the sound from left to right
+  sliderPan = createSlider(-1, 1, 0, 0.01);
 }
 
 //define what is drawn in the canvas
@@ -29,8 +32,7 @@ function draw() {
     text('W A I T . . .', width/2, windowHeight - 90);
     pop();
 
-    //create a slider to slide the sound from left to right
-    sliderPan = createSlider(-1, 1, 0, 0.01);
+
     //style the pan
     song.pan(sliderPan.value());
     sliderPan.position(width/2 - 200, height - 45);
