@@ -15,16 +15,22 @@ function reset() {
 
   analyzer = new p5.Amplitude();
   analyzer.setInput(song);
-
-  //create a slider to slide the sound from left to right
-  sliderPan = createSlider(-1, 1, 0, 0.01);
 }
 
 //define what is drawn in the canvas
 function draw() {
     basic(); //basic animation
     visual(); //animation that becomes more complex as the beat does
+    push();
+    textAlign(CENTER, CENTER);
+    noStroke();
+    fill("#b0f11d");
+    textSize(15);
+    text('W A I T . . .', width/2, windowHeight - 90);
+    pop();
 
+    //create a slider to slide the sound from left to right
+    sliderPan = createSlider(-1, 1, 0, 0.01);
     //style the pan
     song.pan(sliderPan.value());
     sliderPan.position(width/2 - 200, height - 45);
